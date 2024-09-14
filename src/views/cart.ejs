@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="bg-dark text-white p-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1>Your Cart</h1>
+      <a href="/cart" class="btn btn-light position-relative">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="container mt-5">
+    <h2>Cart Details</h2>
+    <% if (cartItems.length === 0) { %>
+      <p>Your cart is empty.</p>
+    <% } else { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% cartItems.forEach(item => { %>
+            <tr>
+              <td><%= item.product.name %></td>
+              <td><%= item.quantity %></td>
+              <td>$<%= item.product.price %></td>
+              <td>$<%= item.quantity * item.product.price %></td>
+              <td>
+                <form action="/cart/remove" method="POST" class="d-inline">
+                  <input type="hidden" name="itemId" value="<%= item._id %>">
+                  <button type="submit" class="btn btn-danger">Remove</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <h3>Total: $<%= cartItems.reduce((total, item) => total + (item.quantity * item.product.price), 0) %></h3>
+      <a href="/order/confirm" class="btn btn-success">Confirm Order</a>
+      <a href="/" class="btn btn-success">Back to Home</a>
+    <% } %>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('/cart/count');
+        const data = await response.json();
+        const cartCount = data.count || 0;
+        document.getElementById('cart-count').textContent = cartCount;
+      } catch (error) {
+        console.error('Error fetching cart count:', error);
+      }
+    });
+  </script>
+</body>
+</html>

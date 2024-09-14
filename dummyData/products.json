@@ -1,0 +1,45 @@
+[
+    {
+      "name": "Wireless Mouse",
+      "price": 19.99,
+      "description": "A high-precision wireless mouse with ergonomic design.",
+      "stock": 150,
+      "imageUrl": "https://placehold.co/400x300?text=Wireless+Mouse"
+    },
+    {
+      "name": "Bluetooth Headphones",
+      "price": 89.99,
+      "description": "Noise-cancelling Bluetooth headphones with long battery life.",
+      "stock": 75,
+      "imageUrl": "https://placehold.co/400x300?text=Bluetooth+Headphones"
+    },
+    {
+      "name": "4K Monitor",
+      "price": 299.99,
+      "description": "A 27-inch 4K monitor with vivid colors and sharp resolution.",
+      "stock": 50,
+      "imageUrl": "https://placehold.co/400x300?text=4K+Monitor"
+    },
+    {
+      "name": "Gaming Keyboard",
+      "price": 129.99,
+      "description": "Mechanical gaming keyboard with customizable RGB backlighting.",
+      "stock": 120,
+      "imageUrl": "https://placehold.co/400x300?text=Gaming+Keyboard"
+    },
+    {
+      "name": "Smartwatch",
+      "price": 199.99,
+      "description": "Smartwatch with fitness tracking and notifications.",
+      "stock": 100,
+      "imageUrl": "https://placehold.co/400x300?text=Smartwatch"
+    },
+    {
+      "name": "USB-C Hub",
+      "price": 29.99,
+      "description": "Multi-port USB-C hub with HDMI and USB 3.0 ports.",
+      "stock": 200,
+      "imageUrl": "https://placehold.co/400x300?text=USB-C+Hub"
+    }
+  ]
+  
